@@ -1,5 +1,5 @@
-;--------------------------------
-; Variable Declarations
+;----------------------------------------
+; Initialized Variable Declarations
 section .data
 
 ; The data section is where initialized data must be
@@ -13,7 +13,15 @@ hello   db  'Hello, world!'
 ; Example of defining an integer.
 num     db  10
 
-;--------------------------------
+;----------------------------------------
+; Uninitialized Data Section
+section .bss
+
+; The bss section is where uninitialized data must be
+; declared.
+
+
+;----------------------------------------
 ; Code Section
 section .text
 
@@ -27,6 +35,6 @@ _start:
 ; and various other code segments.
 
 
-;--------------------------------
+;----------------------------------------
 ; Terminate Program
 last:
