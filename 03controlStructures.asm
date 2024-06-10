@@ -1,6 +1,7 @@
 ;-----------------------
 ; Robert Pearce
 ; 06/10/2024
+; Program demonstrating the use of loops, conditional statements, and branching.
 
 ; Assemble the file with:
 ; yasm -f elf64 -g dwarf2 -o 03controlStructures.o 03controlStructures.asm
@@ -18,6 +19,9 @@ section .data
 EXIT_SUCCESS    equ 0   ; Successful Operation
 SYS_exit        equ 60  ; Call Code for Terminate
 
+ten         db  10           ; Variable for loop control.
+sumToTen    db  0            ; Variable for loop counting to ten.
+
 
 ;--------------------------------
 ; Uninitialized Data Section
@@ -31,6 +35,12 @@ section .text
 global _start   ; Entry point for the program.
 _start:
 
+; Loop to count to 10.
+mov al, byte[ten]           ; Move ten to al register for loop control.
+countToTen:                 ; Loop label.
+    inc [sumToTen]          ; Increment variable.
+    cmp [sumToTen], al      ; Compare variable to LCV.
+    jl countToTen           ; If variable is less than ten jump to label.
 
 ;--------------------------------
 ; Terminate Program
