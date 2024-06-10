@@ -1,3 +1,7 @@
+;-----------------------
+; Robert Pearce
+; 06/10/2024
+
 ;----------------------------------------
 ; Initialized Variable Declarations
 section .data

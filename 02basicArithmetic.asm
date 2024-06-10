@@ -1,3 +1,7 @@
+;-----------------------
+; Robert Pearce
+; 06/10/2024
+
 ; Assemble the file with:
 ; yasm -f elf64 -g dwarf2 -o 02basicArithmetic.o 02basicArithmetic.asm
 
