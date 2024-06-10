@@ -1,11 +1,11 @@
 ; Assemble the file with:
-; yasm -f elf64 -g dwarf2 -o basicArithmetic.o basicArithmetic.asm
+; yasm -f elf64 -g dwarf2 -o 02basicArithmetic.o 02basicArithmetic.asm
 
 ; Link the program with:
-; ld -m elf_x86_64 -o basicArithmetic basicArithmetic.o
+; ld -m elf_x86_64 -o 02basicArithmetic 02basicArithmetic.o
 
 ; Debug with:
-; ddd basicArithmetic
+; ddd 02basicArithmetic
 
 ;--------------------------------
 ; Initialized Data Section
