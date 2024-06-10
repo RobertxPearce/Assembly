@@ -20,7 +20,10 @@ EXIT_SUCCESS    equ 0   ; Successful Operation
 SYS_exit        equ 60  ; Call Code for Terminate
 
 ten         db  10           ; Variable for loop control.
-sumToTen    db  0            ; Variable for loop counting to ten.
+sumToTen    db   0           ; Variable for loop counting to ten.
+
+num         db  -3           ; Variable for conditional checks.
+isPNZ       db   0           ; Variable for result.
 
 
 ;--------------------------------
@@ -41,6 +44,15 @@ countToTen:                 ; Loop label.
     inc [sumToTen]          ; Increment variable.
     cmp [sumToTen], al      ; Compare variable to LCV.
     jl countToTen           ; If variable is less than ten jump to label.
+mov al, 0                   ; Clear register.
+
+
+; Conditions to check if number is positive, negative, or zero.
+movsx al, byte[num]         ; Move (sign extended) num to register.
+
+
+
+
 
 ;--------------------------------
 ; Terminate Program
