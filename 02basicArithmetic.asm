@@ -12,16 +12,6 @@
 ; ddd 02basicArithmetic
 
 ;--------------------------------
-; Initialized Data Section
-section .data
-
-EXIT_SUCCESS    equ 0   ; Successful Operation
-SYS_exit        equ 60  ; Call Code for Terminate
-
-num1    db  10  ; Initialize byte for 1st int.
-num2    db  5   ; Initialize byte for 2nd int.
-
-;--------------------------------
 ; Uninitialized Data Section
 section .bss
 
@@ -30,6 +20,16 @@ dif         resb 1   ; Reserve byte for difference.
 prod        resb 1   ; Reserve byte for product.
 quotient    resb 1   ; Reserve byte for quotient.
 remainder   resb 1   ; Reserve byte for remainder.
+
+;--------------------------------
+; Initialized Data Section
+section .data
+
+EXIT_SUCCESS    equ 0   ; Successful Operation
+SYS_exit        equ 60  ; Call Code for Terminate
+
+num1    db  10  ; Initialize byte for 1st int.
+num2    db  5   ; Initialize byte for 2nd int.
 
 ;--------------------------------
 ; Code Section

@@ -13,6 +13,10 @@
 ; ddd 03controlStructures
 
 ;--------------------------------
+; Uninitialized Data Section
+section .bss
+
+;--------------------------------
 ; Initialized Data Section
 section .data
 
@@ -24,12 +28,6 @@ sumToTen    db   0           ; Variable for loop counting to ten.
 
 num         db  -3           ; Variable for conditional checks.
 isPNZ       db   0           ; Variable for result.
-
-
-;--------------------------------
-; Uninitialized Data Section
-section .bss
-
 
 ;--------------------------------
 ; Code Section
@@ -50,8 +48,16 @@ mov al, 0                   ; Clear register.
 ; Conditions to check if number is positive, negative, or zero.
 movsx al, byte[num]         ; Move (sign extended) num to register.
 
-
-
+cmp al, 0
+jl isNeg
+    mov byte[isPNZ], -1
+    isNeg:
+je isZero
+    mov byte[isPNZ], 0
+    isZero:
+je isPos
+    mov byte[isPNZ], 1
+    isPos:
 
 
 ;--------------------------------
