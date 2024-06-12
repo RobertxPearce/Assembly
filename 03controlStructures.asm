@@ -12,12 +12,12 @@
 ; Debug with:
 ; ddd 03controlStructures
 
-;--------------------------------
-; Uninitialized Data Section
+;-------------------------------------------------------
+; BSS (Block Start Symbol) Uninitialized Data Section
 section .bss
 
-;--------------------------------
-; Initialized Data Section
+;-------------------------------------------------------
+; Data Initialized Variable Declarations
 section .data
 
 EXIT_SUCCESS    equ 0   ; Successful Operation
@@ -29,7 +29,7 @@ sumToTen    db   0           ; Variable for loop counting to ten.
 num         db  -3           ; Variable for conditional checks.
 isPNZ       db   0           ; Variable for result.
 
-;--------------------------------
+;-------------------------------------------------------
 ; Code Section
 section .text
 
@@ -60,7 +60,7 @@ je isPos
     isPos:
 
 
-;--------------------------------
+;-------------------------------------------------------
 ; Terminate Program
 last:
     mov rax, SYS_exit       ; Call code for exit.

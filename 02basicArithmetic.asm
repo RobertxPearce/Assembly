@@ -11,8 +11,8 @@
 ; Debug with:
 ; ddd 02basicArithmetic
 
-;--------------------------------
-; Uninitialized Data Section
+;-------------------------------------------------------
+; BSS (Block Start Symbol) Uninitialized Data Section
 section .bss
 
 sum         resb 1   ; Reserve byte for sum.
@@ -21,8 +21,8 @@ prod        resb 1   ; Reserve byte for product.
 quotient    resb 1   ; Reserve byte for quotient.
 remainder   resb 1   ; Reserve byte for remainder.
 
-;--------------------------------
-; Initialized Data Section
+;-------------------------------------------------------
+; Data Initialized Variable Declarations
 section .data
 
 EXIT_SUCCESS    equ 0   ; Successful Operation
@@ -31,7 +31,7 @@ SYS_exit        equ 60  ; Call Code for Terminate
 num1    db  10  ; Initialize byte for 1st int.
 num2    db  5   ; Initialize byte for 2nd int.
 
-;--------------------------------
+;-------------------------------------------------------
 ; Code Section
 section .text
 
@@ -64,7 +64,7 @@ div byte[num2]      ; Divide al by num2, quotient in al, remainder in ah.
 mov [quotient], al  ; Move quotient to variable.
 mov [remainder], ah ; Move remainder to variable.
 
-;--------------------------------
+;-------------------------------------------------------
 ; Terminate Program
 last:
     mov rax, SYS_exit       ; Call code for exit.
