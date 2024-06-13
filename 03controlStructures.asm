@@ -27,7 +27,7 @@ ten         db  10           ; Variable for loop control.
 sumToTen    db   0           ; Variable for loop counting to ten.
 
 num         db  -3           ; Variable for conditional checks.
-isPNZ       db   0           ; Variable for result.
+sign       db   0            ; Variable for result.
 
 ;-------------------------------------------------------
 ; Code Section
@@ -39,26 +39,26 @@ _start:
 ; Loop to count to 10.
 mov al, byte[ten]           ; Move ten to al register for loop control.
 countToTen:                 ; Loop label.
-    inc [sumToTen]          ; Increment variable.
+    inc byte[sumToTen]          ; Increment variable.
     cmp [sumToTen], al      ; Compare variable to LCV.
     jl countToTen           ; If variable is less than ten jump to label.
 mov al, 0                   ; Clear register.
 
 
 ; Conditions to check if number is positive, negative, or zero.
-movsx al, byte[num]         ; Move (sign extended) num to register.
+mov al, byte[num]           ; Move (sign extended) num to register.
 
-cmp al, 0
-jl isNeg
-    mov byte[isPNZ], -1
-    isNeg:
-je isZero
-    mov byte[isPNZ], 0
-    isZero:
-je isPos
-    mov byte[isPNZ], 1
-    isPos:
-
+cmp al, 0                   ; Check num against 0.
+jle notPositiveCase         ; Jump to label if num is less than 0.
+    mov byte[sign], 1       ; Else move 1 to sign var.
+    jmp doneWithSign        ; Jump to end (no comparison).
+notPositiveCase:
+je notNegativeCase          ; Jump to label if num is not greater than 0.
+    mov byte[sign], -1      ; Else move -1 to sign var.
+    jmp doneWithSign        ; Jump to end (no comparison).
+notNegativeCase:
+    mov byte[sign], 0
+doneWithSign:
 
 ;-------------------------------------------------------
 ; Terminate Program

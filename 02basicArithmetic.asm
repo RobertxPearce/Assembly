@@ -75,7 +75,16 @@ mov [quotient], al  ; Move quotient to variable.
 mov [remainder], ah ; Move remainder to variable.
 
 ; Signed Division : idiv <src>
+; mov al, byte[num1]
+; cbw
+; idiv byte[num2]
+; mov byte[signedQuotient], al
+; mov byte[signedRemainder], ah
 
+movsx ax, byte [num1]
+cbw
+idiv byte [num3]
+mov byte [signedQuotient], al
 
 ;-------------------------------------------------------
 ; Terminate Program
