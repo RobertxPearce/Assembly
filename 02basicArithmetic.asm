@@ -15,11 +15,14 @@
 ; BSS (Block Start Symbol) Uninitialized Data Section
 section .bss
 
-sum         resb 1   ; Reserve byte for sum.
-dif         resb 1   ; Reserve byte for difference.
-prod        resb 1   ; Reserve byte for product.
-quotient    resb 1   ; Reserve byte for quotient.
-remainder   resb 1   ; Reserve byte for remainder.
+sum               resb 1   ; Reserve byte for sum.
+dif               resb 1   ; Reserve byte for difference.
+prod              resb 1   ; Reserve byte for product.
+signedProd        resb 1   ; Reserve byte for signed product
+quotient          resb 1   ; Reserve byte for quotient.
+remainder         resb 1   ; Reserve byte for remainder.
+signedQuotient    resb 1   ; Reserve byte for signed quotient.
+signedRemainder   resb 1   ; Reserve byte for signed remainder.
 
 ;-------------------------------------------------------
 ; Data Initialized Variable Declarations
@@ -30,6 +33,7 @@ SYS_exit        equ 60  ; Call Code for Terminate
 
 num1    db  10  ; Initialize byte for 1st int.
 num2    db  5   ; Initialize byte for 2nd int.
+num3    db  -10 ; Initialize byte for 3rd int.
 
 ;-------------------------------------------------------
 ; Code Section
@@ -56,6 +60,12 @@ mov al, [num1]      ; Move num1 into register.
 mul byte [num2]     ; Multiply al by num2, answer in ax.
 mov [prod], al      ; Move lower byte of answer to variable.
 
+; Signed Multiplication : imul <source>
+mov rax, 0               ; Clear rax register.
+movsx rax, byte [num3]   ; Move num3 into rax register with sign extension.
+imul byte [num1]         ; Multiply al by num1, answer in ax.
+mov [signedProd], ax     ; Move answer from ax to variable.
+
 ; Division : div <src>
 mov rax, 0          ; Clear rax register.
 mov al, [num1]      ; Move num1 into al (lower part of ax).
@@ -63,6 +73,9 @@ cbw                 ; Convert byte in al to word in ax.
 div byte[num2]      ; Divide al by num2, quotient in al, remainder in ah.
 mov [quotient], al  ; Move quotient to variable.
 mov [remainder], ah ; Move remainder to variable.
+
+; Signed Division : idiv <src>
+
 
 ;-------------------------------------------------------
 ; Terminate Program
