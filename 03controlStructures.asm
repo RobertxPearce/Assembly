@@ -29,6 +29,10 @@ sumToTen    db   0           ; Variable for loop counting to ten.
 num         db  -3           ; Variable for conditional checks.
 sign       db   0            ; Variable for result.
 
+arrInts     dd  3, 5, 6, 7, 10, 12, -1, 9, 8
+length      dd  8
+sum         dd  0
+
 ;-------------------------------------------------------
 ; Code Section
 section .text
@@ -59,6 +63,21 @@ je notNegativeCase          ; Jump to label if num is not greater than 0.
 notNegativeCase:            ; Jump label if value not negative.
     mov byte[sign], 0       ; If no other cases are meant num is 0.
 doneWithSign:               ; Last jump label.
+
+
+; For loop example summing an array.
+; int sum = 0;
+; for (int i = 0; i < length; i++)
+;   sum += arr[i]
+
+mov eax, 0      ; Let eax represent the sum.
+mov rbx, 0      ; Let ebx represent i (int i = 0).
+forLoop:
+    add eax, dword[arrInts + 4 * rbx]    ; sum += arr[i] arrInts is the start address - 4 is the data size - rbx is the index
+    inc ebx         ; i++
+cmp ebx, length ; Compare i against length.
+jl forLoop      ; If i < length, jump back to the beginning of the loop.
+mov dword[sum], eax     ; Store array sum into memory.
 
 ;-------------------------------------------------------
 ; Terminate Program
