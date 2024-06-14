@@ -75,10 +75,11 @@ mov [quotient], al  ; Move quotient to variable.
 mov [remainder], ah ; Move remainder to variable.
 
 ; Signed Division : idiv <src>
-movsx ax, byte [num1]
-cbw
-idiv byte [num3]
-mov byte [signedQuotient], al
+mov ax, byte[num1]              ; Move num1 into ax register.
+cbw                             ; Convert byte to word.
+idiv byte[num3]                 ; Signed division ax by num3.
+mov byte[signedQuotient], al    ; Move quotient in al into variable.
+mov byte[signedRemainder], ah   ; Move remainder in ah into variable.
 
 ;-------------------------------------------------------
 ; Terminate Program
