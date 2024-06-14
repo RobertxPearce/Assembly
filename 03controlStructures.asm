@@ -39,7 +39,7 @@ _start:
 ; Loop to count to 10.
 mov al, byte[ten]           ; Move ten to al register for loop control.
 countToTen:                 ; Loop label.
-    inc byte[sumToTen]          ; Increment variable.
+    inc byte[sumToTen]      ; Increment variable.
     cmp [sumToTen], al      ; Compare variable to LCV.
     jl countToTen           ; If variable is less than ten jump to label.
 mov al, 0                   ; Clear register.
@@ -52,13 +52,13 @@ cmp al, 0                   ; Check num against 0.
 jle notPositiveCase         ; Jump to label if num is less than 0.
     mov byte[sign], 1       ; Else move 1 to sign var.
     jmp doneWithSign        ; Jump to end (no comparison).
-notPositiveCase:
+notPositiveCase:            ; Jump label if value not positive.
 je notNegativeCase          ; Jump to label if num is not greater than 0.
     mov byte[sign], -1      ; Else move -1 to sign var.
     jmp doneWithSign        ; Jump to end (no comparison).
-notNegativeCase:
-    mov byte[sign], 0
-doneWithSign:
+notNegativeCase:            ; Jump label if value not negative.
+    mov byte[sign], 0       ; If no other cases are meant num is 0.
+doneWithSign:               ; Last jump label.
 
 ;-------------------------------------------------------
 ; Terminate Program
