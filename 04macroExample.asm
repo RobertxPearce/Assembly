@@ -2,6 +2,15 @@
 ; Robert Pearce
 ; 06/14/2024
 
+; Assemble the file with:
+; yasm -f elf64 -g dwarf2 -o 04macroExample.o 04macroExample.asm
+
+; Link the program with:
+; ld -m elf_x86_64 -o 04macroExample 04macroExample.o
+
+; Debug with:
+; ddd 04macroExample
+
 ;-------------------------------------------------------
 ; BSS (Block Start Symbol) Uninitialized Data Section
 section .bss
