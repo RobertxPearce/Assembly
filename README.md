@@ -7,6 +7,8 @@ Repo for Assembly notes and projects.
 
 **03** - Program demonstrating the use of loops, conditional statements, and branching.
 
+**04** - Using a macro to sum 3 arrays.
+
 ## Built with
 * x86-64 Instruction Set 
 * Assembled with YASM (https://yasm.tortall.net/)
