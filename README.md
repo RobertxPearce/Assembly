@@ -7,7 +7,7 @@ Repo for Assembly notes and projects.
 
 **03** - Program demonstrating the use of loops, conditional statements, and branching.
 
-**04** - Program demonstrating the use of macros by finding the sum of multiple arrays..
+**04** - Program demonstrating the use of macros by finding the sum of multiple arrays.
 
 ## Built with
 * x86-64 Instruction Set 
