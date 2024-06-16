@@ -75,9 +75,9 @@ mov rbx, 0      ; Let ebx represent i (int i = 0).
 forLoop:
     add eax, dword[arrInts + 4 * rbx]    ; sum += arr[i] arrInts is the start address - 4 is the data size - rbx is the index
     inc ebx         ; i++
-cmp ebx, length ; Compare i against length.
-jl forLoop      ; If i < length, jump back to the beginning of the loop.
-mov dword[sum], eax     ; Store array sum into memory.
+cmp ebx, length     ; Compare i against length.
+jl forLoop          ; If i < length, jump back to the beginning of the loop.
+mov dword[sum], eax ; Store array sum into memory.
 
 ;-------------------------------------------------------
 ; Terminate Program
