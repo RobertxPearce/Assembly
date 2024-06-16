@@ -20,14 +20,14 @@ section .bss
 ; Data Initialized Variable Declarations
 section .data
 
-EXIT_SUCCESS    equ 0   ; Successful Operation
-SYS_exit        equ 60  ; Call Code for Terminate
+EXIT_SUCCESS    equ 0        ; Successful Operation
+SYS_exit        equ 60       ; Call Code for Terminate
 
 ten         db  10           ; Variable for loop control.
 sumToTen    db   0           ; Variable for loop counting to ten.
 
 num         db  -3           ; Variable for conditional checks.
-sign       db   0            ; Variable for result.
+sign        db   0           ; Variable for result.
 
 arrInts     dd  3, 5, 6, 7, 10, 12, -1, 9, 8
 length      dd  8
