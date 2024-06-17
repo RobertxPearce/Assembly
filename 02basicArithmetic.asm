@@ -75,7 +75,7 @@ mov [quotient], al  ; Move quotient to variable.
 mov [remainder], ah ; Move remainder to variable.
 
 ; Signed Division : idiv <src>
-mov ax, byte[num1]              ; Move num1 into ax register.
+mov ax, [num1]              ; Move num1 into ax register.
 cbw                             ; Convert byte to word.
 idiv byte[num3]                 ; Signed division ax by num3.
 mov byte[signedQuotient], al    ; Move quotient in al into variable.
