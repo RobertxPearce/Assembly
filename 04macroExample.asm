@@ -24,7 +24,7 @@ section .bss
 
     mov rax, 0                      ; Clear rax register for sum.
     mov rbx, 0                      ; Clear rbx register for count.
-    %%forLoop:                      ; Loop label.
+    %%forLoop:                      ; Loop label (%% in front of label means to generate a unique label for each macro).
         add ax, word[%1 + 2 * rbx]  ; Add value at index to ax.
         inc rbx                     ; Increment index.
     cmp rbx, %2                     ; Compare rbx against against argument 2 (the length).
