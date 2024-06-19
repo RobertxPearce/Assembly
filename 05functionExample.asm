@@ -73,5 +73,5 @@ findAverage:
         inc rbx
         cmp rbx, rsi
         jl forLoop
-    div si
+    div si    ; Answer in rax per calling convention.
 ret ; Return statement out of function.
