@@ -66,12 +66,12 @@ last:
 ; Argument 2 is the length by value of the array (rsi).
 ; Return value (the average) is in rax.
 findAverage:
-    mov rax, 0
-    mov rbx, 0
-    forLoop:
-        add ax, word[rdi + 2 * rbx]
-        inc rbx
-        cmp rbx, rsi
-        jl forLoop
-    div si    ; Answer in rax per calling convention.
-ret ; Return statement out of function.
+    mov rax, 0                          ; Clear rax for sum.
+    mov rbx, 0                          ; Clear rbx for index.
+    forLoop:                            ; Loop label.
+        add ax, word[rdi + 2 * rbx]     ; Add value at index to sum (ax).
+        inc rbx                         ; Increment index.
+        cmp rbx, rsi                    ; Compare index (rbx) to length (rsi).
+        jl forLoop                      ; Jump to label if index is less than length.
+    div si                              ; Answer in rax per calling convention.
+ret                                     ; Return statement out of function.
