@@ -28,12 +28,14 @@ signedRemainder   resb 1   ; Reserve byte for signed remainder.
 ; Data Initialized Variable Declarations
 section .data
 
-EXIT_SUCCESS    equ 0   ; Successful Operation
-SYS_exit        equ 60  ; Call Code for Terminate
-
 num1    db  10  ; Initialize byte for 1st int.
 num2    db  5   ; Initialize byte for 2nd int.
 num3    db  -10 ; Initialize byte for 3rd int.
+
+;---------------------Constants-------------------------
+
+EXIT_SUCCESS    equ 0   ; Successful Operation
+SYS_exit        equ 60  ; Call Code for Terminate
 
 ;-------------------------------------------------------
 ; Code Section

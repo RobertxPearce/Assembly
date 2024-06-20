@@ -18,6 +18,8 @@ section .data
 ; Section. Data defined here is static and remains
 ; throughout the program execution.
 
+;---------------------Constants-------------------------
+
 EXIT_SUCCESS    equ 0   ; Exit code for success.
 SYS_exit        equ 60  ; Syscall code for terminating program.
 

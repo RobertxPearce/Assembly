@@ -53,6 +53,8 @@ avg1    dw  0
 avg2    dw  0
 avg3    dw  0
 
+;---------------------Constants-------------------------
+
 EXIT_SUCCESS    equ 0   ; Exit code for success.
 SYS_exit        equ 60  ; Syscall code for terminating program.
 
