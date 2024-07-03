@@ -1,42 +1,43 @@
-
-# -----------------------------------------------------
-# Data Declarations
+#------------------------- Data section ------------------------- 
 .data
-sum:    .space  4   # Used to store result.
-arr     .word   3, 6, 7, 10, 12, 2, 3, 6, 5, 7, 10, 9, 2
+n:		.space	4	#Used to store result
+m:		.space	4	
+p:		.space	4
+w:		.word	2
+x:		.word	4
+y:		.byte	5
+z:		.half	6
+s:		.asciiz	"Hello World\n"
+arr:	.word	4, 5, 6, 7, 9
+uninit:	.space	4				#Create 4 bytes of uninitialized space
 
-
-LENGTH = 13
+LENGTH = 5						#Creates a constant of 5 (used as literal in code)	
 SYS_EXIT = 10
-# -----------------------------------------------------
-# text/code section
+
+#------------------------- Data section ------------------------- 
 .text
-.global main
+.globl main
 main:
 
+#Compute n = x + w
+lw $t0, x
+lw $t1, w
+add $t0, $t0, $t1
+sw $t0, n
+
+#Compute m = x - w
+lw $t0, x
+lw $t1, w
+sub $t0, $t0, $t1
+sw $t0, m
+
+#Compute p = x * w
+lw $t0, x
+lw $t1, w
+mul $t0, $t0, $t1
+sw $t0, p
+
 exit:
-    li 
-
-la $a0, arr     # Let $a0 hold a reference to the array.
-li $t0, 0       # Let $t0 hold the counter.
-li $t2, 0       # Let $t2 hold the sum.
-li $t1, LENGTH  # Let $t1 hold the length.
-li $t4, 4       # Let $t4 hold the size of data (Part of the first solution).
-sumLoop:
-    # add ebx, dword[rdi + 4 * rax]
-
-    # First solution for array addressing.
-    # mul $t5, $t0, $t4
-    # add $t6, #a0, $t5
-    # lw $tx, ($t6)
-
-    lw $t3, ($t0)
-    add $t2, $t2, $t3       # Sum += arr[i]
-
-
-    addi $a0, $a0, 4        # Take the array address and shift 4 bytes right.
-    addi $t0, $t0, 1        # $t0++
-    bltu $t0, $t1, sumLoop  # Branch to sumLoop if $t0 < $t1
-
-
-
+    li $v0, SYS_EXIT              	# terminate program run and
+    syscall                      	# Exit 
+	jr $ra #Finish main
