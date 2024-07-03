@@ -1,2 +1,2 @@
 # Assembly-Projects
-Repository for my x86-64 and MIPS Assembly notes and projects.
+Repository for x86-64 and MIPS Assembly notes and projects.
